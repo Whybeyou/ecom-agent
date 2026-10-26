@@ -34,12 +34,22 @@ Agent（Function Calling）
 前置：本地 Ollama 运行 `bge-m3`，DeepSeek API Key 在 `E:\agent-learning\.env`。
 
 ```bash
-# 交互式多轮对话
+pip install -r requirements.txt
+
+# Web 服务（推荐）：启动后浏览器打开 http://127.0.0.1:8000
+python server.py
+
+# 命令行多轮对话
 python agent.py
 
 # 自动跑一组测试问题
 python test_agent.py
 ```
+
+### 接口
+
+- `GET /health` — 健康检查
+- `POST /api/chat` — 对话接口，请求 `{"message": "问题", "history": [{"role":"user","content":"..."}]}`，返回 `{"answer": "..."}`
 
 ## 运行效果
 
